@@ -3,8 +3,15 @@ import Buscador from './componentes/Buscador'
 
 class App extends Component {
   
+  state = {
+    terminoState: 'Café'
+  }
+
   datosBusqueda = (termino) => {
     console.log('Desde APP ' + termino);
+    this.setState({
+      terminoState: termino
+    });
   }
 
   render() {
@@ -18,6 +25,7 @@ class App extends Component {
             datosBusqueda={ this.datosBusqueda }
           />
         </div>
+        { this.state.terminoState }
       </div>
     );
   }
