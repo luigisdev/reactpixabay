@@ -10,6 +10,12 @@ class App extends Component {
     paginaState: 1
   }
 
+  // metodo que lleva después de elegir cualquier boton de paginación, hacia el jumbotron 
+  scroll = () => {
+    const elemento = document.querySelector('.jumbotron');
+    elemento.scrollIntoView('smooth', 'start');
+  }
+
   paginaAnterior = () => {
     // leer el state de la pagina actual
     let pagina = this.state.paginaState;
@@ -28,6 +34,7 @@ class App extends Component {
       paginaState: pagina
     }, () => {
       this.consultarApi();
+      this.scroll();
     });
 
     console.log('Anterior... ' + pagina);
@@ -46,6 +53,7 @@ class App extends Component {
       paginaState: pagina
     }, () => {
       this.consultarApi();
+      this.scroll();
     });
 
     console.log('Siguiente... ' + pagina);
