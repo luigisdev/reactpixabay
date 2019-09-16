@@ -1,0 +1,11 @@
+comando para crear una app de react de la manera más básica sin instalar globalmente 2create-react-app"	
+	
+	npx create-react-app my-app
+
+comando sugerido para instalar el creador de apps facil de react
+	
+	npm install -g create-react-app
+
+Se utilizó el sig. comando para crear la app del tutorial
+	
+	npx create-react-app reactpixabay
