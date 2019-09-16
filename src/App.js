@@ -4,13 +4,29 @@ import Buscador from './componentes/Buscador'
 class App extends Component {
   
   state = {
-    terminoState: 'Café'
+    terminoState: '',
+    imagenes: []
+  }
+
+  consultarApi = () => {
+    
+    const terminoBusqueda = this.state.terminoState;
+
+    const url = `https://pixabay.com/api/?key=13637572-2ce9ee79e5abb9578ce725977&q=${ terminoBusqueda }&per_page=30`;
+
+    console.log( url );
+    fetch( url )
+      .then( respuesta => respuesta.json() )
+      .then( resultado => this.setState( { imagenes : resultado.hits } ) );
+      //.then( resultado => console.log( resultado.hits ));
   }
 
   datosBusqueda = (termino) => {
     console.log('Desde APP ' + termino);
     this.setState({
       terminoState: termino
+    }, () => {
+      this.consultarApi();
     });
   }
 
@@ -25,7 +41,7 @@ class App extends Component {
             datosBusqueda={ this.datosBusqueda }
           />
         </div>
-        { this.state.terminoState }
+        {/* this.state.terminoState */}
       </div>
     );
   }
