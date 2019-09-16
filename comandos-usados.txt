@@ -9,3 +9,9 @@ comando sugerido para instalar el creador de apps facil de react
 Se utilizó el sig. comando para crear la app del tutorial
 	
 	npx create-react-app reactpixabay
+
+Comando para instalar el servidor estatico globalmente para hacer pruebas
+	npm install -g serve
+
+Después correr el servidor con el siguiente comando e ir a la url que da
+	serve -s build 
