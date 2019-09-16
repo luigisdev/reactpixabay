@@ -15,3 +15,22 @@ Comando para instalar el servidor estatico globalmente para hacer pruebas
 
 Después correr el servidor con el siguiente comando e ir a la url que da
 	serve -s build 
+
+Instrucciones para subir a producción (deploy) sin embargo se detallan los comandos enseguida del link
+	https://create-react-app.dev/docs/deployment#github-pages-https-pagesgithubcom
+
+Open your package.json and add a homepage field for your project:
+
+	"homepage": "https://myusername.github.io/my-app",
+
+	npm install --save gh-pages
+
+Add the following scripts in your package.json:
+
+  "scripts": {
++   "predeploy": "npm run build",
++   "deploy": "gh-pages -d build",
+
+Then run:
+
+	npm run deploy
