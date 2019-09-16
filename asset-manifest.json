@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/reactpixabay/static/css/main.34de6062.chunk.css",
+    "main.js": "/reactpixabay/static/js/main.68883421.chunk.js",
+    "main.js.map": "/reactpixabay/static/js/main.68883421.chunk.js.map",
+    "runtime~main.js": "/reactpixabay/static/js/runtime~main.052636ea.js",
+    "runtime~main.js.map": "/reactpixabay/static/js/runtime~main.052636ea.js.map",
+    "static/js/2.d9338b06.chunk.js": "/reactpixabay/static/js/2.d9338b06.chunk.js",
+    "static/js/2.d9338b06.chunk.js.map": "/reactpixabay/static/js/2.d9338b06.chunk.js.map",
+    "index.html": "/reactpixabay/index.html",
+    "precache-manifest.e3d7566343c91c89eb31e945e5dd2912.js": "/reactpixabay/precache-manifest.e3d7566343c91c89eb31e945e5dd2912.js",
+    "service-worker.js": "/reactpixabay/service-worker.js",
+    "static/css/main.34de6062.chunk.css.map": "/reactpixabay/static/css/main.34de6062.chunk.css.map"
+  }
+}
