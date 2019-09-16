@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Imagen from './Imagen';
 
 class Resultado extends Component {
 
@@ -13,11 +14,14 @@ class Resultado extends Component {
         console.log( imagenesRecibidas );
 
         return (
-            <React.fragment>
-                <div className="col-12 p-5 row">
-                    
-                </div>
-            </React.fragment>
+            <div className="col-12 p-5 row">
+                { imagenesRecibidas.map( imagenRecibida => (
+                    <Imagen 
+                        key = { imagenRecibida.id }
+                        imagen = { imagenRecibida }
+                    />
+                ))}
+            </div>
         );
         
     }
