@@ -6,14 +6,59 @@ class App extends Component {
   
   state = {
     terminoState: '',
-    imagenesState: []
+    imagenesState: [],
+    paginaState: 1
+  }
+
+  paginaAnterior = () => {
+    // leer el state de la pagina actual
+    let pagina = this.state.paginaState;
+
+    // leer si la pagina es uno 
+    if (pagina === 1) {
+      return null;
+    }
+
+    // restar uno a la pagina actual
+    pagina--;
+
+    // agregar el cambio al state, CUANDO SE HACEN CAMBIOS AL STATE, PARA EJECUTAR UNA FUNCION
+    // SE TIENE QUE EJECUTAR EL CALLBACK CON UNA FUNCIÓN DE FLECHA COMO LA QUE SE MUESTRA 
+    this.setState({
+      paginaState: pagina
+    }, () => {
+      this.consultarApi();
+    });
+
+    console.log('Anterior... ' + pagina);
+  }
+  
+  paginaSiguiente = () => {
+    // leer el state de la pagina actual
+    let pagina = this.state.paginaState;
+
+    // sumar uno a la pagina actual
+    pagina++;
+
+    // agregar el cambio al state, CUANDO SE HACEN CAMBIOS AL STATE, PARA EJECUTAR UNA FUNCION
+    // SE TIENE QUE EJECUTAR EL CALLBACK CON UNA FUNCIÓN DE FLECHA COMO LA QUE SE MUESTRA
+    this.setState({
+      paginaState: pagina
+    }, () => {
+      this.consultarApi();
+    });
+
+    console.log('Siguiente... ' + pagina);
   }
 
   consultarApi = () => {
     
     const terminoBusqueda = this.state.terminoState;
+    const pagina = this.state.paginaState;
 
-    const url = `https://pixabay.com/api/?key=13637572-2ce9ee79e5abb9578ce725977&q=${ terminoBusqueda }&per_page=30`;
+    const url = `https://pixabay.com/api/?key=13637572-2ce9ee79e5abb9578ce725977&q=${ terminoBusqueda }
+                  &per_page=30
+                  &page=${ pagina }`;
 
     console.log( url );
     fetch( url )
@@ -25,7 +70,8 @@ class App extends Component {
   datosBusqueda = (termino) => {
     console.log('Desde APP ' + termino);
     this.setState({
-      terminoState: termino
+      terminoState: termino,
+      pagina: 1
     }, () => {
       this.consultarApi();
     });
@@ -43,10 +89,13 @@ class App extends Component {
           />
         </div>
         {/* this.state.terminoState */}
-
-        <Resultado 
-          imagenes={ this.state.imagenesState}
-        />
+        <div className="row text-center">
+          <Resultado 
+            imagenes={ this.state.imagenesState }
+            paginaAnterior  = { this.paginaAnterior }
+            paginaSiguiente = { this.paginaSiguiente }
+          />
+        </div>
       </div>
     );
   }
