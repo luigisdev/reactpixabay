@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import Buscador from './componentes/Buscador'
+import Resultado from './componentes/Resultado';
 
 class App extends Component {
   
   state = {
     terminoState: '',
-    imagenes: []
+    imagenesState: []
   }
 
   consultarApi = () => {
@@ -17,7 +18,7 @@ class App extends Component {
     console.log( url );
     fetch( url )
       .then( respuesta => respuesta.json() )
-      .then( resultado => this.setState( { imagenes : resultado.hits } ) );
+      .then( resultado => this.setState( { imagenesState : resultado.hits } ) );
       //.then( resultado => console.log( resultado.hits ));
   }
 
@@ -42,6 +43,10 @@ class App extends Component {
           />
         </div>
         {/* this.state.terminoState */}
+
+        <Resultado 
+          imagenes={ this.state.imagenesState}
+        />
       </div>
     );
   }
